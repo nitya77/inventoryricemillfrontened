@@ -83,6 +83,7 @@ export default function PartyLedgerPage({ params }: { params: Promise<{ id: stri
     amount: '',
     payment_mode: 'Cash',
     payment_details: '',
+    description: '',
     bank_name: '',
     utr_no: '',
     ref_no: '',
@@ -168,7 +169,6 @@ export default function PartyLedgerPage({ params }: { params: Promise<{ id: stri
           payment_details: '',
           bank_name: '',
           utr_no: '',
-          ref_no: '',
           cheque_date: ''
         });
         fetchLedger();

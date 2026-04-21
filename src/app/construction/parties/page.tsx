@@ -27,6 +27,7 @@ function Drawer({ open, onClose, title, children }: any) {
 }
 
 export default function ConstructionPartiesPage() {
+  const router = useRouter();
   const [parties, setParties] = useState<any[]>([]);
   const [isFetching, setIsFetching] = useState(true);
   const [search, setSearch] = useState("");

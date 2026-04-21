@@ -37,7 +37,7 @@ export default function Header() {
 
   useEffect(() => {
     if (searchQuery.length < 2) {
-      setSearchResults([]);
+      setSearchResults({ parties: [], products: [] });
       setShowResults(false);
       return;
     }

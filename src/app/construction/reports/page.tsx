@@ -3,7 +3,7 @@
 import { 
   BarChart3, TrendingUp, TrendingDown, 
   ArrowUpRight, ArrowDownRight, HardHat, Pickaxe, Drill,
-  Calendar, FileText, Download, Printer, ArrowLeft
+  Calendar, FileText, Download, Printer, ArrowLeft, CheckCircle2
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 

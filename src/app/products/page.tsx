@@ -104,7 +104,15 @@ export default function ProductsMasterPage() {
   };
 
   const openEdit = (item: any) => {
-    setForm({ name: item.name, variety: item.variety || "", varietyId: item.varietyId || "", type: item.type, unit: item.unit || "Kg", quality: item.quality || "Fresh" });
+    setForm({ 
+      name: item.name, 
+      variety: item.variety || "", 
+      varietyId: item.varietyId || "", 
+      type: item.type, 
+      unit: item.unit || "Kg", 
+      quality: item.quality || "Fresh",
+      qualityId: item.qualityId || "" 
+    });
     setError("");
     setDrawerMode("edit");
     setSelectedId(item.id);

@@ -33,6 +33,7 @@ type SaleItem = {
   rate: string;
   quality: string;
   qualityId: string;
+  unit: string;
 };
 
 export default function NewSalesInvoicePage() {
@@ -56,7 +57,7 @@ export default function NewSalesInvoicePage() {
   });
 
   const [items, setItems] = useState<SaleItem[]>([
-    { variety: "", varietyId: "", productType: "Finished", bagsSold: "", weightSold: "", rate: "", quality: "Fresh", qualityId: "" },
+    { variety: "", varietyId: "", productType: "Finished", bagsSold: "", weightSold: "", rate: "", quality: "Fresh", qualityId: "", unit: "Kg" },
   ]);
 
   useEffect(() => {
@@ -103,7 +104,7 @@ export default function NewSalesInvoicePage() {
   const addItemRow = () => {
     setItems([
       ...items,
-      { variety: "", varietyId: "", productType: "Finished", bagsSold: "", weightSold: "", rate: "", quality: "Fresh", qualityId: "" },
+      { variety: "", varietyId: "", productType: "Finished", bagsSold: "", weightSold: "", rate: "", quality: "Fresh", qualityId: "", unit: "Kg" },
     ]);
   };
 

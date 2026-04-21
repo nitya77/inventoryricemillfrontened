@@ -4,10 +4,11 @@ import API_BASE_URL from "@/utils/api";
 import {
   BarChart3, Warehouse, Package, TrendingUp, TrendingDown,
   ArrowDown, ArrowUp, RefreshCw, Printer, AlertTriangle,
-  CheckCircle2, Clock, ShoppingCart, ChevronDown, ChevronUp, Search, Filter
+  CheckCircle2, Clock, ShoppingCart, ChevronDown, ChevronUp, Search, Filter, History
 } from "lucide-react";
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const TYPE_COLORS: Record<string, { bg: string; text: string; border: string; dot: string }> = {
   "Raw":        { bg: "bg-orange-50",  text: "text-orange-700",  border: "border-orange-200",  dot: "bg-orange-500" },

@@ -29,7 +29,11 @@ import Link from "next/link";
 export default function ItemLedgerPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const router = useRouter();
-  const [data, setData] = useState<{ product: any, items: any[] } | null>(null);
+  const [data, setData] = useState<{ 
+    product: any, 
+    items: any[], 
+    pending?: { purchase: number, sale: number } 
+  } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   // Filters
