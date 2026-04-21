@@ -12,7 +12,7 @@ import {
   User,
   Box,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import SearchableSelect from "@/components/SearchableSelect";
@@ -36,7 +36,7 @@ type SaleItem = {
   unit: string;
 };
 
-export default function NewSalesInvoicePage() {
+function NewSalesInvoicePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const prefillId = searchParams.get("partyId");
@@ -504,5 +504,18 @@ export default function NewSalesInvoicePage() {
         </div>
       </form>
     </div>
+  );
+}
+
+export default function NewSalesInvoicePage() {
+  return (
+    <Suspense fallback={
+      <div className="p-20 text-center space-y-4 animate-pulse">
+        <div className="w-16 h-16 bg-slate-100 rounded-full mx-auto" />
+        <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest leading-loose">Preparing Sales Invoice Terminal...</p>
+      </div>
+    }>
+      <NewSalesInvoicePageContent />
+    </Suspense>
   );
 }
