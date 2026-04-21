@@ -20,7 +20,7 @@ import {
   UserCheck,
   Hash,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import SearchableSelect from "@/components/SearchableSelect";
@@ -87,7 +87,7 @@ function calcRow(item: ProcurementItem) {
   };
 }
 
-export default function NewProcurementIntakePage() {
+function NewProcurementIntakePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const prefillId = searchParams.get("partyId");
@@ -975,5 +975,18 @@ export default function NewProcurementIntakePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function NewProcurementIntakePage() {
+  return (
+    <Suspense fallback={
+      <div className="p-20 text-center space-y-4 animate-pulse">
+        <div className="w-16 h-16 bg-slate-100 rounded-full mx-auto" />
+        <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest leading-loose">Configuring Intake Environment...</p>
+      </div>
+    }>
+      <NewProcurementIntakePageContent />
+    </Suspense>
   );
 }
