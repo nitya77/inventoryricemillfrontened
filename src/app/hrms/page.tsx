@@ -6,7 +6,7 @@ import {
   Save, Search, User, CheckCircle2, XCircle, 
   Clock, MinusCircle, AlertCircle
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { alertSuccess, alertError } from "@/utils/alerts";
 
@@ -17,7 +17,7 @@ const STATUS_OPTS = [
   { id: "late", label: "Late", icon: AlertCircle, color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
 ];
 
-export default function AttendancePage() {
+function AttendancePageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const targetEmployeeId = searchParams.get("employee_id");
@@ -273,5 +273,18 @@ export default function AttendancePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AttendancePage() {
+  return (
+    <Suspense fallback={
+      <div className="p-20 text-center space-y-4 animate-pulse">
+        <div className="w-16 h-16 bg-slate-100 rounded-full mx-auto" />
+        <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest leading-loose">Synchronizing Attendance Logs...</p>
+      </div>
+    }>
+      <AttendancePageContent />
+    </Suspense>
   );
 }
